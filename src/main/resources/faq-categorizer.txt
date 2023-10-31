@@ -1,0 +1,13 @@
+greeting	 hi hi. hello how are you? hey. hows it going good morning good evening good afternoon howdy. 
+how-to-place-an-order-with-us	 how to order. how to place order. how to place order with us. how. how to. with us. how to place an order. how to order place. how to order place. how to place order. order with us. placing order. order placing. order. place.	 
+how-to-change-quantities-of-orders-in-the-cart	 how to change quantities how to update quantities how to change quantities of order how to update quantities of order how to change quantities of order in cart change quantities in cart change quantities update quantities
+how-to-place-bulk-orders	 how to bulk orders. how to place bulk orders. how to bulk order. place bulk orders. bulk orders. bulk order. bulk. how to huge order. how to heavy order. how to more quantity order. 
+why-am-i-unable-to-place-orders 	why unable to place orders. why am I unable to place orders. why not able to place order. why failing at place order. why failing to place order. why stuck at place order. 
+what-is-cash-on-delivery	 what is cash on delivery. cash on delivery. what cash on delivery. what on delivery. what is COD. cod.  
+how-to-place-gift-orders	 how to place gift orders. how to gift orders. how to place gift orders. how to order gift. how to gift. order gift. gift orders.
+how-to-change-the-payment-method	 how to change payment method. how to change payment. how to change method. how to update payment. how to update payment method. change payment method. update payment method. change payment. update payment.
+can-i-change-or-modify-orders-that-are-already-placed	 can i change or modify orders that are already placed. can i change orders that are already placed. can i update orders that are already placed. can i modify orders that are already placed. can i change already orders placed. can i update already orders placed.
+i-ordered-a-wrong-item.-how-can-i-stop-the-order	 i ordered a wrong item. how can i stop the order. ordered wrong item. ordered wrong item by mistake. by mistake wrong item ordered. how to stop order. how can i stop order. how can i stop my order.
+how-to-cancel-orders	 how to cancel orders. cancel orders. cancel my orders. canceling order. cancellation. 
+how-can-i-order-the-same-items-again	 how can i order the same items again. how can i order same items again. how to order the same items again. how to order the same items. how to repeat order. how to order same product. how to order again.
+how-to-track-orders		how to track orders. track order. locate order. how to check where order is. how to find order location. how to check order location. where is my order. 
