@@ -97,6 +97,17 @@ public class ChatBotServiceImpl implements ChatBotService {
 	    }
 	    break;
 
+	case "delivery date":
+	case "delivery_date":
+	    for (Order orderDetails : orderList) {
+		if (orderDetails.getOrderId().equalsIgnoreCase(orderId)) {
+		    responseString = orderDetails.getDeliveryDate().toString();
+		    response.setResponse(responseString);
+		    break;
+		}
+	    }
+	    break;
+
 	}
 	if (responseString == null || responseString.isEmpty()) {
 	    DoccatModel model = null;
@@ -106,16 +117,16 @@ public class ChatBotServiceImpl implements ChatBotService {
 		e.printStackTrace();
 	    }
 	    try {
-		String[] sentences = ChatBotModel.breakSentences(request);
-		for (String sentence : sentences) {
+		String[] lines = ChatBotModel.breakSentences(request);
+		for (String line : lines) {
 
-		    String[] tokens = ChatBotModel.tokenizeSentence(sentence);
+		    String[] tokenArray = ChatBotModel.tokenizeSentence(line);
 
-		    String[] posTags = ChatBotModel.detectPOSTags(tokens);
+		    String[] posTagArray = ChatBotModel.detectPOSTags(tokenArray);
 
-		    String[] lemmas = ChatBotModel.lemmatizeTokens(tokens, posTags);
+		    String[] lemmaArray = ChatBotModel.lemmatizeTokens(tokenArray, posTagArray);
 
-		    String category = ChatBotModel.detectCategory(model, lemmas);
+		    String category = ChatBotModel.detectCategory(model, lemmaArray);
 
 		    category = category.replace('-', ' ');
 		    for (Entry<String, String> entry : faqMap.entrySet()) {
