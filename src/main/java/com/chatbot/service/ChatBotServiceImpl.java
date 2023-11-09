@@ -2,10 +2,12 @@ package com.chatbot.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Service;
 
 import com.chatbot.dto.Details;
@@ -37,7 +39,9 @@ public class ChatBotServiceImpl implements ChatBotService {
 	try {
 
 	    try {
+		InputStream inputStream = ChatBotModel.class.getResourceAsStream("/details.json");
 		File f = new File("./src/main/resources/details.json");
+		FileUtils.copyInputStreamToFile(inputStream, f);
 		details = mapper.readValue(f, Details.class);
 	    } catch (StreamReadException e) {
 		e.printStackTrace();
@@ -160,7 +164,9 @@ public class ChatBotServiceImpl implements ChatBotService {
 	ObjectMapper mapper = new ObjectMapper();
 	Details details = null;
 	try {
+	    InputStream inputStream = ChatBotModel.class.getResourceAsStream("/details.json");
 	    File f = new File("./src/main/resources/details.json");
+	    FileUtils.copyInputStreamToFile(inputStream, f);
 
 	    details = mapper.readValue(f, Details.class);
 
@@ -177,7 +183,9 @@ public class ChatBotServiceImpl implements ChatBotService {
 
 	mapper = new ObjectMapper();
 	try {
+	    InputStream inputStream = ChatBotModel.class.getResourceAsStream("/details.json");
 	    File f = new File("./src/main/resources/details.json");
+	    FileUtils.copyInputStreamToFile(inputStream, f);
 	    mapper.writeValue(f, details);
 	} catch (IOException e) {
 	    e.printStackTrace();
