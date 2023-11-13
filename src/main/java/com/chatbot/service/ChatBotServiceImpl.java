@@ -17,9 +17,11 @@ import com.chatbot.dto.Order;
 import com.chatbot.dto.Response;
 import com.chatbot.dto.SupportContact;
 import com.chatbot.model.ChatBotModel;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
@@ -63,10 +65,18 @@ public class ChatBotServiceImpl implements ChatBotService {
 
 	switch (request) {
 	case "support":
+	case "support contact":
+	case "support contact number":
+	case "support contact phone":
+	case "contact support":
 	case "contact":
 	case "email":
 	case "e-mail":
 	case "mail":
+	case "support e-mail":
+	case "support email":
+	case "support mail":
+	case "support contact details":
 	    SupportContact sc = details.getSupportContact();
 	    responseString = "E-mail: " + sc.getEmail() + ",\nContact: " + sc.getPhone();
 	    response.setResponse(responseString);
@@ -75,13 +85,32 @@ public class ChatBotServiceImpl implements ChatBotService {
 	case "order_list":
 	case "orders":
 	case "order list":
+	case "orders list":
 	case "list orders":
+	case "list order":
 	case "list of orders":
-	    responseString = orderList.toString();
-	    response.setResponse(responseString);
+	case "list of order":
+
+	    ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+	    try {
+		responseString = ow.writeValueAsString(orderList);
+		responseString = responseString.toString().replace("\\", "");
+		responseString = responseString.toString().replace("\n", "");
+
+		response.setResponse(responseString);
+	    } catch (JsonProcessingException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	    }
 	    break;
 
 	case "status":
+	case "order status":
+	case "order_status":
+	case "status of order":
+	case "status of my order":
+	case "my order status":
+
 	    for (Order orderDetails : orderList) {
 		if (orderDetails.getOrderId().equalsIgnoreCase(orderId)) {
 		    responseString = orderDetails.getOrderStatus().toString();
@@ -92,6 +121,12 @@ public class ChatBotServiceImpl implements ChatBotService {
 	    break;
 
 	case "refund":
+	case "refund status":
+	case "refund_status":
+	case "where is my refund":
+	case "status of refund":
+	case "status of my refund":
+
 	    for (Order orderDetails : orderList) {
 		if (orderDetails.getOrderId().equalsIgnoreCase(orderId)) {
 		    responseString = orderDetails.getRefundStatus().toString();
@@ -101,8 +136,28 @@ public class ChatBotServiceImpl implements ChatBotService {
 	    }
 	    break;
 
+	case "return":
+	case "return status":
+	case "return_status":
+	case "where is my return":
+	case "status of return":
+	case "status of my return":
+
+	    for (Order orderDetails : orderList) {
+		if (orderDetails.getOrderId().equalsIgnoreCase(orderId)) {
+		    responseString = orderDetails.getReturnStatus().toString();
+		    response.setResponse(responseString);
+		    break;
+		}
+	    }
+	    break;
+
 	case "delivery date":
 	case "delivery_date":
+	case "what is delivery date":
+	case "when my order will be delivered":
+	case "date of delivery":
+
 	    for (Order orderDetails : orderList) {
 		if (orderDetails.getOrderId().equalsIgnoreCase(orderId)) {
 		    responseString = orderDetails.getDeliveryDate().toString();
