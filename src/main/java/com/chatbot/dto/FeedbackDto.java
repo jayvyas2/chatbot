@@ -1,21 +1,27 @@
 package com.chatbot.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class FeedbackDto {
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonProperty("order_id")
     private String orderId;
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonProperty("rate_product")
     private String rateProduct;
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonProperty("rate_delivery")
     private String rateDelivery;
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonProperty("order_feedback")
     private String orderFeedback;
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonProperty("suggestion")
     private String suggestion;
 
